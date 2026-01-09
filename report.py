@@ -1,28 +1,6 @@
-import matplotlib
+from measurement import Measurement
 import matplotlib.pyplot as plt
 import numpy as np
-import tkinter
-from tkinter import ttk
-from tkinter.filedialog import askopenfilename
-
-class Measurement:
-    """
-    Measurment of a signal. Split into Time and Value.
-    """
-    time: float
-    value: float
-
-    def __init__(self, time: float, value: float):
-        self.time=time
-        self.value=value
-
-    def __repr__(self):
-        return f"Measurement({self.time}, {self.value})"
-    
-    @staticmethod
-    def parse(line: str):
-        signal = line.split("\t")
-        return Measurement(float(signal[0]), float(signal[2].replace("\xa0", "")))
 
 class Report:
     """
@@ -92,36 +70,3 @@ class Report:
 
         plt.minorticks_on()
         plt.show()
-
-class ConfigUI:
-    root: tkinter.Tk
-    frame: ttk.Frame
-    path: tkinter.StringVar
-    legend: tkinter.IntVar
-
-    def __init__(self):
-        self.root = tkinter.Tk()
-        self.frame = ttk.Frame(self.root, padding=10)
-        self.path = tkinter.StringVar()
-        self.legend = tkinter.IntVar()
-    
-    def run(self):
-        self.frame.grid()
-        ttk.Entry(self.frame, textvariable = self.path).grid(column=0, row=0)
-        ttk.Button(self.frame, text = "Select data file", command = self._select_file).grid(column=1,row=0)
-        ttk.Checkbutton(self.frame, text = "Legend", variable = self.legend).grid(column=0, row=1)
-        ttk.Button(self.frame, text = "Run", command=self._generate).grid(row=2, columnspan=2)
-        self.root.mainloop()
-
-    def _select_file(self):
-        path = askopenfilename(parent=self.root, title="Select chromatography data export", filetypes=[("Chromatography data export", ".txt")])
-        self.path.set(path)
-
-    def _generate(self):
-        with open(self.path.get(), "rt") as f:
-            report = Report.parse(f.read())
-        print(report)
-        report.plot(self.legend.get()==1)
-
-matplotlib.use("macosx")
-ConfigUI().run()
