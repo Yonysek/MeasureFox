@@ -9,9 +9,19 @@ function App() {
     "Im dying"
   ];
 
-  return (<div className="w-1/4 flex flex-col gap-2 p-8 h-full">
-    <GraphList graphs={graphs} pinnedIndex={1} />
-    <GraphToolbar />
+  return (<div className="w-full h-full flex p-8 gap-8 justify-stretch">
+    <div className="w-1/4 flex flex-col gap-2 h-full">
+      <GraphList graphs={graphs} pinnedIndex={1} />
+      <GraphToolbar />
+    </div>
+    <div className="flex flex-col gap-8 w-3/4">
+      <div className="h-3/4 border-2 bg-white shadow-xl">
+
+      </div>
+      <div className="h-1/4">
+
+      </div>
+    </div>
   </div>)
 }
 
