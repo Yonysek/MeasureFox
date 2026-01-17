@@ -11,7 +11,7 @@ export function GraphList({ graphs, pinnedIndex }: GraphListProps) {
 
     return (<div className="border-2 bg-white shadow-xl p-2 flex flex-col gap-2">
         {graphs.map((graph, i) =>
-            <GraphListItem name={graph} isPinned={i == index} pinClicked={() => setIndex(i)} />
+            <GraphListItem name={graph} isPinned={i == index} pinClicked={() => setIndex(i == index ? undefined : i)} />
         )}
     </div>)
 }
