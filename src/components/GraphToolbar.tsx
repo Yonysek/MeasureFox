@@ -1,12 +1,12 @@
 import { MdAdd, MdRemove } from "react-icons/md"
 
 export function GraphToolbar() {
-    return (<div className="flex flex-row-reverse gap-4 p-2">
-        <div className="bg-primary shadow-xl rounded-md">
+    return (<div className="flex flex-row-reverse gap-4 px-2 pt-2">
+        <button className="bg-primary shadow-xl rounded-md cursor-pointer">
             <MdAdd size={32} color="white" />
-        </div>
-        <div className="bg-primary shadow-xl rounded-md">
+        </button>
+        <button className="bg-primary shadow-xl rounded-md cursor-pointer">
             <MdRemove size={32} color="white" />
-        </div>
+        </button>
     </div>)
 }

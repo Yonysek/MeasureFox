@@ -9,8 +9,8 @@ export interface GraphListItemProps {
 export function GraphListItem({ name, isPinned = false, pinClicked }: GraphListItemProps) {
     return (<div className="flex w-full items-center">
         <div className="grow">{name}</div>
-        <div className="cursor-pointer" onClick={() => pinClicked()}>
+        <button className="cursor-pointer" onClick={() => pinClicked()}>
             {isPinned ? <MdPushPin /> : <MdOutlinePushPin />}
-        </div>
+        </button>
     </div>)
 }
