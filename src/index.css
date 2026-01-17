@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+    --color-primary: var(--color-orange-500);
+}
+
 body {
     background-size: 2rem 2rem;
     background-image:

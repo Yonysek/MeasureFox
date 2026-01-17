@@ -1,4 +1,5 @@
 import { GraphList } from "./components/GraphList"
+import { GraphToolbar } from "./components/GraphToolbar"
 
 function App() {
   const graphs = [
@@ -8,8 +9,9 @@ function App() {
     "Im dying"
   ];
 
-  return (<div className="w-1/4 flex flex-col gap-2 p-8">
+  return (<div className="w-1/4 flex flex-col gap-2 p-8 h-full">
     <GraphList graphs={graphs} pinnedIndex={1} />
+    <GraphToolbar />
   </div>)
 }
 
