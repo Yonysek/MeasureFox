@@ -1,5 +1,6 @@
 import { GraphList } from "./components/GraphList"
 import { GraphToolbar } from "./components/GraphToolbar"
+import { Page } from "./components/Page";
 
 function App() {
   const graphs = [
@@ -15,9 +16,9 @@ function App() {
       <GraphToolbar />
     </div>
     <div className="flex flex-col gap-8 w-3/4">
-      <div className="h-3/4 border-2 bg-white shadow-xl">
-
-      </div>
+      <Page className="h-3/4">
+      
+      </Page>
       <div className="h-1/4">
 
       </div>
